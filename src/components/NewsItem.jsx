@@ -4,7 +4,7 @@ const NewsItem = (props) => {
   let { title, description, imageUrl, newsUrl, author, date, source } = props;
   return (
     <div className="my-3">
-      <div className="card">
+      <div className="card h-100">
         <div
           className="d-flex justify-content-end position-absolute"
           
@@ -13,7 +13,7 @@ const NewsItem = (props) => {
           <span className="badge bg-danger">{source} </span>{" "}
         </div>
         <img src={imageUrl} className="card-img-top" alt="..." />
-        <div className="card-body" style={{ color: "#070c57" }}>
+        <div className="card-body bg-dark" style={{ color: "white" }}>
           <h5 className="card-title">{title}...</h5>
           <p className="card-text">{description}...</p>
           <p className="card-text">
@@ -25,7 +25,7 @@ const NewsItem = (props) => {
             href={newsUrl}
             rel="noreferrer"
             target="_blank"
-            className="btn btn-sm btn-dark"
+            className="btn btn-sm btn-light"
           >
             Read more...
           </a>

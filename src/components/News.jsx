@@ -15,6 +15,7 @@ const News =(props)=> {
         props.setProgress(10);
         let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`; 
         setLoading(true);
+        console.log(url);
         let data = await fetch(url);
         props.setProgress(30);
         let parsedData = await data.json();
@@ -25,6 +26,7 @@ const News =(props)=> {
         props.setProgress(100);
     }
     useEffect(()=> {
+        
         updateNews();
         document.title = `${capitaliz(props.category)} - NewsMonkey`
     },[]);
@@ -41,8 +43,9 @@ const News =(props)=> {
             <>
                 <h1 className='text-center first' style={{
                     fontStyle: "italic",
-                    fontFamily: "initial"
-                }} >NewsMonkey  -Top  {capitaliz(props.category)} Headlines</h1>
+                    fontFamily: "initial",
+                    color:"white"
+                }} >Top  {capitaliz(props.category)} Headlines</h1>
                 {loading && <Spinner/>}
                 <InfiniteScroll
                     dataLength={articles.length}
